@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Invoice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> </head>
+<body>
+    <div class="container">
+        <h2>Upload Invoice</h2>
+
+        <form action="{{ url_for('upload_image') }}" method="POST" enctype="multipart/form-data" id="upload-form">
+            <label for="file" class="file-container">
+                <span class="upload-label"><i class="material-icons">cloud_upload</i> Select File</span>
+                <input type="file" id="file" name="file" accept="image/*,application/pdf" required>
+                <span id="file-name" class="selected-file"></span>
+            </label>
+
+            <div class="ocr-selection">
+                <label><input type="radio" name="ocr_method" value="easy" required> Easy OCR</label>
+                <label><input type="radio" name="ocr_method" value="google" required> Google Vision OCR</label>
+                <input type="hidden" name="selected_ocr" id="selected_ocr">
+            </div>
+
+            <div class="button-container">
+                <button type="submit">📄 Upload</button>
+                <a href="{{ url_for('dashboard') }}" class="back-button">
+                    <button type="button"><i class="material-icons">arrow_back</i> Back to Dashboard</button>
+                </a>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('file').addEventListener('change', function() {
+            var fileName = this.files[0].name;
+            document.getElementById('file-name').textContent = fileName;
+        });
+
+        document.getElementById('upload-form').addEventListener('submit', function() {
+            const selectedOcr = document.querySelector('input[name="ocr_method"]:checked').value;
+            document.getElementById('selected_ocr').value = selectedOcr;
+        });
+    </script>
+</body>
+</html>

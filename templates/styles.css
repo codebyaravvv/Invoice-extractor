@@ -1,0 +1,90 @@
+body {
+    font-family: 'Arial', sans-serif; /* Use Arial for better compatibility */
+    margin: 0; /* Remove default margin */
+    background-color: #4a4a70; /* Your background color */
+    color: white; /* White text for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+}
+
+.container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); /* Glassmorphism effect */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 90%; /* Responsive width */
+    max-width: 600px;
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+label.file-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+label.file-container span {
+    margin-left: 15px;
+    font-size: 1.1em;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.ocr-selection {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.ocr-selection label {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.ocr-selection input[type="radio"] {
+    margin-right: 10px;
+}
+
+button, .back-button button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient buttons */
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.back-button button {
+    background: linear-gradient(to right, #ff6e7f, #bfe9fe); /* Different gradient */
+}
+
+button:hover, .back-button button:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

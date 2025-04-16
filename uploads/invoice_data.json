@@ -1,0 +1,58 @@
+{
+    "invoice_number": "1000-15088",
+    "invoice_date": "12/06/2023",
+    "items": [
+        {
+            "description": "Curtain Cleaning\nSuperior dry cleaning on-site",
+            "quantity": 3,
+            "unit_price": 40.0,
+            "total_price": 120.0
+        },
+        {
+            "description": "Green Cleaning\nEco-friendly cleaning by using products that are non-toxic, biodegradable, and safe",
+            "quantity": 2,
+            "unit_price": 50.0,
+            "total_price": 100.0
+        },
+        {
+            "description": "Pressure Washing\nJet washer to deliver a powerful water stream to remove dirt and clean surfaces",
+            "quantity": 1,
+            "unit_price": 110.0,
+            "total_price": 110.0
+        },
+        {
+            "description": "Chimney Sweeping\nChimney sweeping to prevent soot build-up, which is a fire hazard",
+            "quantity": 1,
+            "unit_price": 105.0,
+            "total_price": 105.0
+        },
+        {
+            "description": "Ceiling and Wall Cleaning\nRemoving dirt, oil, and other grime on walls and ceilings",
+            "quantity": 8,
+            "unit_price": 35.0,
+            "total_price": 280.0
+        },
+        {
+            "description": "Sanitization Services\nUsing Hydrogen peroxide to wipe down surfaces that people touch on a regular basis",
+            "quantity": 3,
+            "unit_price": 60.0,
+            "total_price": 180.0
+        }
+    ],
+    "item_subtotal": 895.0,
+    "discount_amount": 50.0,
+    "tax_rate": 10,
+    "tax_amount": 84.5,
+    "total_amount": 929.5,
+    "payment_terms": "Unless otherwise agreed in writing by the parties, all invoices are payable within thirty (30) days of the invoice date.",
+    "bank_details": {
+        "bank_name": "National Bank of Hamamanji",
+        "account_number": "0123 0000 1111 2323",
+        "routing_number": "25-88-00"
+    },
+    "seller_name": "CLEANING SERVICES",
+    "seller_address": "2001 Street Name\nCity, State, Country, Zip code",
+    "seller_phone": "(000) 123 456 7890",
+    "seller_email": "cleaningservices@email.com",
+    "currency": "$"
+}

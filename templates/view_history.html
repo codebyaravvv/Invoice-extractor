@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background: linear-gradient(135deg, #E0E8F0, #F0F4F8);
+            color: #374151;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #4A47A3;
+            text-align: center;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #6B7280;
+            text-align: center;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-table th, .history-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #E0E8F0;
+            font-size: 1.1rem;
+        }
+
+        .history-table th {
+            background: #F0F4F8;
+            font-weight: 600;
+            color: #4A47A3;
+        }
+
+        .history-table tr:nth-child(even) {
+            background-color: #F8FAFC;
+        }
+
+        .history-table tr:hover {
+            background-color: #E8F0FE;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back {
+            display: block;
+            background: linear-gradient(135deg, #6D5BBA, #8D58BF);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            font-size: 1.2rem;
+            margin: 30px auto 0;
+            width: fit-content;
+            box-shadow: 0 4px 10px rgba(109, 91, 186, 0.3);
+        }
+
+        .btn-back:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #8D58BF, #6D5BBA);
+            box-shadow: 0 6px 15px rgba(109, 91, 186, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📜 Invoice Extraction History</h1>
+        <h4>Welcome, {{ username }}!</h4>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>🕒 Date & Time</th>
+                    <th>📄 File Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if invoice_history %}
+                    {% for entry in invoice_history[:5] %} <tr>
+                            <td>{{ entry.timestamp_str }}</td>
+                            <td>{{ entry.image_name }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="2">🚫 No history found.</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('dashboard') }}" class="btn-back">Return to Insights</a>
+    </div>
+</body>
+</html>

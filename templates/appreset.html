@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #3A2B7A, #191970);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            transform: translateY(-20px);
+            animation: slideDown 1s ease-in-out forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #3A2B7A;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #555;
+            text-align: left;
+        }
+
+        input[type="password"] {
+            padding: 14px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            background: #f9f9f9;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        input:focus {
+            border-color: #3A2B7A;
+            box-shadow: 0px 0px 8px rgba(58, 43, 122, 0.6);
+            background: #fff;
+        }
+
+        button {
+            background: linear-gradient(90deg, #3A2B7A, #191970);
+            color: white;
+            font-size: 1rem;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: scale(1);
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #191970, #3A2B7A);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(58, 43, 122, 0.6);
+        }
+
+        .message-container {
+            margin-top: 15px;
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Reset Password</h2>
+        <form action="{{ url_for('reset_password') }}" method="POST">
+            <label for="password">Enter New Password</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your new password">
+            <button type="submit">Reset Password</button>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="message-container">
+                    {% for message in messages %}
+                        <div class="message">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
